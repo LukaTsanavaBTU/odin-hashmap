@@ -58,4 +58,19 @@ export default class HashMap {
         }
         return false;
     }
+    // remove(key) {
+    //     const bucketIndex = this.hash(key);
+    //     const bucket = this.buckets[bucketIndex];
+    //     if (bucket && bucket.containsKey(key)) {
+    //         const nodeIndex = bucket.findKeyIndex(key);
+    //         let curNode = bucket.head;
+    //         for (let i = 0; i < nodeIndex; i++) {
+    //             curNode = curNode.next;
+    //         }
+    //         const value = curNode.value;
+
+    //         return true;
+    //     }
+    //     return false;
+    // }
 }

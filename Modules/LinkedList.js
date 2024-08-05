@@ -44,6 +44,20 @@ class LinkedList {
         }
         return {key: curNode.key, value: curNode.value};
     }
+    nodeAt(index) {
+        index = (index >= 0) ? index : (this.size + index); 
+        if (index < 0 || index > this.size) {
+            throw new RangeError("Index out of range");
+        }
+        let curNode = this.head;
+        for(let i = 0; i < index; i++) {
+            curNode = curNode.next;
+            if (!curNode) {
+                return null;
+            }
+        }
+        return curNode;
+    }
     pop() {
         let curNode = this.head;
         for(let i = 0; i < this.size - 2; i++) {
