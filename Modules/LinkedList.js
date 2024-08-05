@@ -1,13 +1,13 @@
 import Node from "./Node.js";
 
-export default class LinkedList {
+class LinkedList {
     constructor() {
         this.head = null;
         this.tail = null;
         this.size = 0;
     }
-    append(value) {
-        const newNode = new Node(value);
+    append(key, value) {
+        const newNode = new Node(key, value);
         if (!this.head) {
             this.head = newNode;
             this.tail = newNode;
@@ -21,8 +21,8 @@ export default class LinkedList {
         }
         this.size += 1;
     }
-    prepend(value) {
-        const newNode = new Node(value);
+    prepend(key, value) {
+        const newNode = new Node(key, value);
         newNode.next = this.head;
         this.head = newNode;
         if (!this.tail) {
@@ -42,34 +42,34 @@ export default class LinkedList {
                 return null;
             }
         }
-        return curNode.data;
+        return {key: curNode.key, value: curNode.value};
     }
     pop() {
         let curNode = this.head;
         for(let i = 0; i < this.size - 2; i++) {
             curNode = curNode.next;
         }
-        const returnVal = curNode.next.data;
+        const returnVal = {key: curNode.next.key, value: curNode.next.value};
         curNode.next = null;
         this.tail = curNode;
         this.size -= 1;
         return returnVal;
     }
-    contains(value) {
+    containsKey(key) {
         let curNode = this.head;
         while (curNode) {
-            if (curNode.data === value) {
+            if (curNode.key === key) {
                 return true;
             }
             curNode = curNode.next;
         }
         return false;
     }
-    find(value) {
+    findKeyIndex(key) {
         let curNode = this.head;
         let index = 0;
         while (curNode) {
-            if (curNode.data === value) {
+            if (curNode.key === key) {
                 return index;
             }
             curNode = curNode.next;
@@ -84,22 +84,22 @@ export default class LinkedList {
         let curNode = this.head;
         let returnString = "";
         while (curNode) {
-            returnString += `( ${curNode.data} ) -> `;
+            returnString += `( ${curNode.key}: ${curNode.value} ) -> `;
             curNode = curNode.next;
         }
         returnString += "null"
         return returnString;
     }
-    insertAt(value, index) {
+    insertAt(key, value, index) {
         // Make choosing element from the end using negative index possible
         index = (index >= 0) ? index : (this.size + index + 1); 
         if (index < 0 || index > this.size) {
             throw new RangeError("Index out of range");
         }
         else if (index === 0) {
-            this.prepend(value);
+            this.prepend(key, value);
         } else {
-            const newNode = new Node(value);
+            const newNode = new Node(key, value);
             let curNode = this.head;
             for(let i = 0; i < index - 1; i++) {
                 curNode = curNode.next;
@@ -120,7 +120,7 @@ export default class LinkedList {
         }
         let returnVal;
         if (index === 0 ) {
-            returnVal = this.head.data;
+            returnVal = {key: this.head.key, value: this.head.value};
             this.head = this.head.next;
             if (!this.head.next) {
                 this.tail = this.head;
@@ -130,7 +130,7 @@ export default class LinkedList {
             for(let i = 0; i < index - 1; i++) {
                 curNode = curNode.next;
             }
-            returnVal = curNode.next.data;
+            returnVal = {key: curNode.next.key, value: curNode.next.value};
             curNode.next = curNode.next.next;
             if (!curNode.next) {
                 this.tail = curNode;
@@ -140,3 +140,5 @@ export default class LinkedList {
         return returnVal;
     }
 }
+
+export {Node, LinkedList};

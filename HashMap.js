@@ -1,4 +1,4 @@
-import LinkedList from "./Modules/LinkedList.js";
+import {Node, LinkedList} from "./Modules/LinkedList.js";
 
 export default class HashMap {
     constructor() {
@@ -16,4 +16,15 @@ export default class HashMap {
      
         return hashCode;
     }
+    // set(key, value) {
+    //     const bucket = this.hash(key);
+    //     const newNode = new Node({key, value});
+    //     if (!this.buckets[bucket]) {
+    //         const list = new LinkedList;
+    //         list.append(newNode);
+    //     } else if (this.buckets[bucket].contains) {
+
+    //     }
+        
+    // }
 }
