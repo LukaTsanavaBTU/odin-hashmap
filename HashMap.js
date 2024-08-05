@@ -55,12 +55,7 @@ export default class HashMap {
     //     const bucket = this.buckets[bucketIndex];
     //     if (bucket && bucket.containsKey(key)) {
     //         const nodeIndex = bucket.findKeyIndex(key);
-    //         let curNode = bucket.head;
-    //         for (let i = 0; i < nodeIndex; i++) {
-    //             curNode = curNode.next;
-    //         }
-    //         const value = curNode.value;
-
+    //         bucket.removeAt(nodeIndex);
     //         return true;
     //     }
     //     return false;

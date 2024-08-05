@@ -140,7 +140,7 @@ class LinkedList {
         if (index === 0 ) {
             returnVal = {key: this.head.key, value: this.head.value};
             this.head = this.head.next;
-            if (!this.head.next) {
+            if (!this.head || !this.head.next) {
                 this.tail = this.head;
             }
         } else {

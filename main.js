@@ -4,5 +4,6 @@ const map = new HashMap;
 map.set("Bjorn", "Bergen");
 map.set("Alex", "Helsinki");
 map.set("Olav", "Oslo");
-console.log(map.has("Bjorn"));
+map.remove("Olav");
+console.log(map.get("Olav"));
 
