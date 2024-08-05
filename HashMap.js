@@ -50,4 +50,12 @@ export default class HashMap {
         }
         return null;
     }
+    has(key) {
+        const bucketIndex = this.hash(key);
+        const bucket = this.buckets[bucketIndex];
+        if (bucket && bucket.containsKey(key)) {
+            return true;
+        }
+        return false;
+    }
 }
