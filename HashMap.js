@@ -23,12 +23,8 @@ export default class HashMap {
             if (!bucket.containsKey(key)) {
                 bucket.append(key, value);
             } else {
-                const nodeIndex = bucket.findKeyIndex(key);
-                let curNode = bucket.head;
-                for (let i = 0; i < nodeIndex; i++) {
-                    curNode = curNode.next;
-                }
-                curNode.value = value;
+                const node = bucket.nodeAtKey(key)
+                node.value = value;
             }
         } else {
             const list = new LinkedList;
