@@ -16,15 +16,24 @@ export default class HashMap {
      
         return hashCode;
     }
-    // set(key, value) {
-    //     const bucket = this.hash(key);
-    //     const newNode = new Node({key, value});
-    //     if (!this.buckets[bucket]) {
-    //         const list = new LinkedList;
-    //         list.append(newNode);
-    //     } else if (this.buckets[bucket].contains) {
-
-    //     }
-        
-    // }
+    set(key, value) {
+        const bucketIndex = this.hash(key);
+        const bucket = this.buckets[bucketIndex];
+        if (bucket) {
+            if (!bucket.containsKey(key)) {
+                bucket.append(key, value);
+            } else {
+                const nodeIndex = bucket.findKeyIndex(key);
+                let curNode = bucket.head;
+                for (let i = 0; i < nodeIndex; i++) {
+                    curNode = curNode.next;
+                }
+                curNode.value = value;
+            }
+        } else {
+            const list = new LinkedList;
+            list.append(key, value);
+            this.buckets[bucketIndex] = list;
+        }
+    }
 }
