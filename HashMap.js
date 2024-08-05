@@ -50,14 +50,14 @@ export default class HashMap {
         }
         return false;
     }
-    // remove(key) {
-    //     const bucketIndex = this.hash(key);
-    //     const bucket = this.buckets[bucketIndex];
-    //     if (bucket && bucket.containsKey(key)) {
-    //         const nodeIndex = bucket.findKeyIndex(key);
-    //         bucket.removeAt(nodeIndex);
-    //         return true;
-    //     }
-    //     return false;
-    // }
+    remove(key) {
+        const bucketIndex = this.hash(key);
+        const bucket = this.buckets[bucketIndex];
+        if (bucket && bucket.containsKey(key)) {
+            const nodeIndex = bucket.findKeyIndex(key);
+            bucket.removeAt(nodeIndex);
+            return true;
+        }
+        return false;
+    }
 }

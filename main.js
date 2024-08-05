@@ -5,5 +5,7 @@ map.set("Bjorn", "Bergen");
 map.set("Alex", "Helsinki");
 map.set("Olav", "Oslo");
 map.remove("Olav");
-console.log(map.get("Olav"));
+map.remove("Alex");
+map.remove("Bjorn");
+console.log(map.buckets);
 
