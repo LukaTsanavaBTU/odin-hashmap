@@ -83,4 +83,13 @@ export default class HashMap {
         });
         return keys;
     }
+    values() {
+        const values = [];
+        this.buckets.forEach(bucket => {
+            if (bucket) {
+                values.push(...bucket.values());
+            }
+        });
+        return values;
+    }
 }

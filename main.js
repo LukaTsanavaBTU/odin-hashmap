@@ -6,5 +6,5 @@ map.set("Alex", "Helsinki");
 map.set("Olav", "Oslo");
 map.remove("Olav");
 console.log(map.buckets);
-console.log(map.keys());
+console.log(map.values());
 
