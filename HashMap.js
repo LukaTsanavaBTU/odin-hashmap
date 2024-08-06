@@ -74,13 +74,13 @@ export default class HashMap {
         this.loadFactor = 0.8;
         this.buckets = [];
     }
-    // keys() {
-    //     const keys = [];
-    //     this.buckets.forEach(bucket => {
-    //         if (bucket) {
-    //             keys.push(...bucket.keys());
-    //         }
-    //     });
-    //     return keys;
-    // }
+    keys() {
+        const keys = [];
+        this.buckets.forEach(bucket => {
+            if (bucket) {
+                keys.push(...bucket.keys());
+            }
+        });
+        return keys;
+    }
 }
