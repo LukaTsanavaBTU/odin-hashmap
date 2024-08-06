@@ -69,4 +69,9 @@ export default class HashMap {
         });
         return length;
     }
+    clear() {
+        this.capacity = 16;
+        this.loadFactor = 0.8;
+        this.buckets = [];
+    }
 }
