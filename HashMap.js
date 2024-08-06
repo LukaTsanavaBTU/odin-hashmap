@@ -64,7 +64,6 @@ export default class HashMap {
     }
     clear() {
         this.capacity = 16;
-        this.loadFactor = 0.8;
         this.buckets = [];
     }
     keys() {
@@ -102,18 +101,29 @@ export default class HashMap {
         const bucket = this.buckets[bucketIndex];
         if (bucket) {
             if (!bucket.containsKey(key)) {
+                if (this.length() + 1 > this.capacity * this.loadFactor) {
+                    this.expand();
+                }
                 bucket.append(key, value);
             } else {
                 const node = bucket.nodeAtKey(key)
                 node.value = value;
             }
         } else {
+            if (this.length() + 1 > this.capacity * this.loadFactor) {
+                this.expand();
+            }
             const list = new LinkedList;
             list.append(key, value);
             this.buckets[bucketIndex] = list;
         }
     }
-    // expand() {
-
-    // }
+    expand() {
+        this.capacity = this.capacity + 16;
+        const oldEntries = this.entries();
+        this.buckets = [];
+        oldEntries.forEach(entry => {
+            this.set(entry[0], entry[1]);
+        });
+    }
 }
