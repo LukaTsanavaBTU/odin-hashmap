@@ -1,5 +1,5 @@
 # HashMap
-Made for [The Odin Project](https://www.theodinproject.com/lessons/javascript-hashmap). The purpose of this project was to implement a hashmap using plain JavaScript. There are three files (and an extra file for testing): Node.js and LinkedList.js containing a classes representing the nodes of a linked list and the linked list itself; HashMap.js containing a class representing the hashmap data structure. For the HashMap class, I've implemented several methods and properties:
+Made for [The Odin Project](https://www.theodinproject.com/lessons/javascript-hashmap). The purpose of this project was to implement a hashmap using plain JavaScript. There are three files (and an extra file for testing): Node.js and LinkedList.js containing classes representing the nodes of a linked list and the linked list itself; HashMap.js containing a class representing the hashmap data structure. For the HashMap class, I've implemented several methods and properties:
 - `hash(key)`: takes a key and produces a hash code with it;
 - `set(key, value)`: takes two arguments, the first is a key and the second is a value that is assigned to this key. If a key already exists, then the old value is overwritten;
 - `get(key)`: takes one argument as a key and returns the value that is assigned to this key. If a key is not found, return null;
