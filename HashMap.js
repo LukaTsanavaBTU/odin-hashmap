@@ -74,4 +74,12 @@ export default class HashMap {
         this.loadFactor = 0.8;
         this.buckets = [];
     }
+    // keys() {
+    //     let keys = [];
+    //     this.buckets.forEach(bucket => {
+    //         if (bucket) {
+    //             key
+    //         }
+    //     });
+    // }
 }

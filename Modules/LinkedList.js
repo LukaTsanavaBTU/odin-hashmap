@@ -108,6 +108,15 @@ class LinkedList {
         returnString += "null"
         return returnString;
     }
+    keys() {
+        const keys = [];
+        let curNode = this.head;
+        while (curNode) {
+            keys.append(curNode.key);
+            curNode = curNode.next;
+        }
+        return keys;
+    }
     insertAt(key, value, index) {
         // Make choosing element from the end using negative index possible
         index = (index >= 0) ? index : (this.size + index + 1); 
