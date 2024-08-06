@@ -75,11 +75,12 @@ export default class HashMap {
         this.buckets = [];
     }
     // keys() {
-    //     let keys = [];
+    //     const keys = [];
     //     this.buckets.forEach(bucket => {
     //         if (bucket) {
-    //             key
+    //             keys.push(...bucket.keys());
     //         }
     //     });
+    //     return keys;
     // }
 }

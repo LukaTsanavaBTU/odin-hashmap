@@ -112,7 +112,7 @@ class LinkedList {
         const keys = [];
         let curNode = this.head;
         while (curNode) {
-            keys.append(curNode.key);
+            keys.push(curNode.key);
             curNode = curNode.next;
         }
         return keys;
