@@ -92,4 +92,13 @@ export default class HashMap {
         });
         return values;
     }
+    // entries() {
+    //     const entries = [];
+    //     this.buckets.forEach(bucket => {
+    //         if (bucket) {
+    //             entries.push(...bucket.entries());
+    //         }
+    //     });
+    //     return entries;
+    // }
 }
