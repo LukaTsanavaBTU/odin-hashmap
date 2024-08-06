@@ -16,22 +16,6 @@ export default class HashMap {
      
         return hashCode;
     }
-    set(key, value) {
-        const bucketIndex = this.hash(key);
-        const bucket = this.buckets[bucketIndex];
-        if (bucket) {
-            if (!bucket.containsKey(key)) {
-                bucket.append(key, value);
-            } else {
-                const node = bucket.nodeAtKey(key)
-                node.value = value;
-            }
-        } else {
-            const list = new LinkedList;
-            list.append(key, value);
-            this.buckets[bucketIndex] = list;
-        }
-    }
     get(key) {
         const bucketIndex = this.hash(key);
         const bucket = this.buckets[bucketIndex];
@@ -100,5 +84,24 @@ export default class HashMap {
             }
         });
         return entries;
+    }
+    set(key, value) {
+        const bucketIndex = this.hash(key);
+        const bucket = this.buckets[bucketIndex];
+        if (bucket) {
+            if (!bucket.containsKey(key)) {
+                bucket.append(key, value);
+            } else {
+                const node = bucket.nodeAtKey(key)
+                node.value = value;
+            }
+        } else {
+            const list = new LinkedList;
+            list.append(key, value);
+            this.buckets[bucketIndex] = list;
+        }
+    }
+    expand() {
+        
     }
 }
